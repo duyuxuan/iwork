@@ -12,6 +12,7 @@ class Request {
 
     public static function redirect( $url, $delay = 0 ) {
         View::render( 'redirect', ['delay' => $delay, 'url' => $url ] );
+        exit();
     }
 
     public static $session = NULL;

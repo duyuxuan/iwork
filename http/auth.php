@@ -10,6 +10,10 @@ class Controller {
         return View::render('app', ['errors' => [] ]);
     }
 
+    public function test( ) {
+        return View::render('test');
+    }
+
     public function create( ) {
         $row = getgpc('row');
         $errors = [];
@@ -19,11 +23,16 @@ class Controller {
                 $errors[] = '密码两次输入不一致';
             }
 
-            $email = getgpc('email');
+            $email = $row['email'];
+            if (!$email) {
+                $errors[] = '邮箱没有填';
+            }
+
             $exists = $db->row("select * from users where email='$email'");
             if ($exists) {
                 $errors[] = '密码两次输入不一致';
             }
+
             if (!$errors) {
                 $row['password'] = password_hash($row['password'], PASSWORD_DEFAULT);
                 $id = $db->insert('users')->cols($row)->query();

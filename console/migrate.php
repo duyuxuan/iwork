@@ -1,4 +1,5 @@
 <?php
+use I\DB;
 class Controller {
 
     public function handle( ) {
@@ -14,7 +15,7 @@ EOT;
         $db->query($sql);
 
         $row = $db->row("select max(batch) as num FROM `migrations`");
-        $batch = $row['num'] ? $row['num'] : 0;
+        $batch = $row->num ? $row->num : 0;
         $batch++;
 
         $dir = 'database/migrations';
@@ -33,7 +34,7 @@ EOT;
                     $sql = trim($sql);
                     if ($sql) {
                         $db->query( $sql );
-                        echo $sql;
+                        // echo $sql;
                     }
                 }
 

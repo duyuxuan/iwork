@@ -8,7 +8,7 @@ use I\Setting;
 class Controller extends AuthedRequest {
     public function index() {
         return View::render('tag-list', [
-            'tags' => DB::write()->query("select * from tags"),
+            'tags' => DB::write()->query("select * from tags order by pro"),
             'pros' => DB::write()->query("select * from pros")
             ]);
     }

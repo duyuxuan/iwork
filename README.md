@@ -17,6 +17,7 @@ CREATE DATABASE IF NOT EXISTS iwork DEFAULT CHARACTER SET utf8 COLLATE utf8_gene
 -
 ```Java
 php artisan "ctl=migrate"
+php artisan "ctl=seeder"
 ```
 
 nginx root目录配置到 public

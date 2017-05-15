@@ -163,7 +163,7 @@ function onLookB( s1, s2 ) {
     html += "<div class='col-md-8'>";
     var j = 0;
     for (var k in stats[i]) {
-      html += ppp( stats[i][k], maxn, k, j );
+      html += ppp( stats[i][k], maxn, total, k, j );
       j++;
     }
     html += "</div>";
@@ -180,7 +180,7 @@ function getTotal( total ) {
   html += "总量";
   html += "</div>";
   html += "<div class='col-md-8'>";
-  html += ppp( total, total, "", 1 );
+  html += ppp( total, total, total, "", 1 );
   html += "</div>";
   html += "</div><hr/>";
 
@@ -210,7 +210,7 @@ function onLookA( s1 ) {
     html += i;
     html += "</div>";
     html += "<div class='col-md-8'>";
-    html += ppp( stats[i], maxn, "", 0 );
+    html += ppp( stats[i], maxn, total, "", 0 );
     html += "</div>";
     html += "</div>";
   }
@@ -219,7 +219,7 @@ function onLookA( s1 ) {
 
 }
 
-function ppp( n, maxn, name, colori ) {
+function ppp( n, maxn, total, name, colori ) {
   var colors = ["", "progress-bar-success", "progress-bar-info", "progress-bar-warning", "progress-bar-danger"]
   var color = colors[colori % colors.length];
   var nn = Math.ceil(n / maxn * 100);
@@ -227,11 +227,11 @@ function ppp( n, maxn, name, colori ) {
   s += '<div class="progress-bar ' + color + '" role="progressbar" aria-valuenow="';
   s += nn;
   s += '" aria-valuemin="0" aria-valuemax="100" style="width: ';
-  s += nn + '%;text-align:left;padding-left:20px;min-width:100px">';
+  s += nn + '%;text-align:left;padding-left:5px;min-width:150px">';
   if (name == "" ) {
     s += n;
   } else {
-    s += name + " &nbsp;&nbsp;&nbsp;&nbsp;" + n;
+    s += name + " &nbsp;&nbsp;&nbsp;&nbsp;" + n + "/" + total + " " + (n/total * 100).toFixed(2) + "%";
   }
   s += '</div></div>';
   s += "<div class='line'></div>";

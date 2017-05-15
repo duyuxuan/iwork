@@ -3,6 +3,10 @@ use I\DB;
 
 class Controller {
 
+    public function password( ) {
+        echo $this->generate_password( ) . "\n";
+    }
+
     private function generate_password( $length = 8 ) {
         $chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
 

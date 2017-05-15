@@ -12,7 +12,7 @@
 	<p><strong>Whoops!</strong> There were some problems with your input.</p>
 	<p></p>
 	<ul>
-		<?php foreach ($errors->all() as $error) :?>
+		<?php foreach ($errors as $error) :?>
 			<li><?= $error ?></li>
 		<?php endforeach?>
 	</ul>
