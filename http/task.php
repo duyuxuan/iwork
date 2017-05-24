@@ -98,9 +98,10 @@ class Controller extends AuthedRequest {
                 $sql .= ', deadline';
             }
         } else {
+            $sql .= ', updated_at desc';
             $orderby = '';
         }
-        $sql .= ', tag desc';
+        $sql .= ', tag';
         $sql .= ', priority desc';
 
         $sql .= " limit $perpage offset $offset";
@@ -365,6 +366,7 @@ class Controller extends AuthedRequest {
         $now = date('Y-m-d H:i:s');
         $row['updated_at'] = $now;
 
+        $db = DB::write();
         if ($id) {
             $db->update('tasks')->cols($row)->where('id='.$id)->query();
         } else {

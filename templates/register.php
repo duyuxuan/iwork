@@ -19,7 +19,7 @@
 </div>
 <?php endif?>
 
-<form method="post" action="/auth/create" autocomplete="off">
+<form method="post" action="/auth/register" autocomplete="off">
 <div class="form-group">
     <div class="input-group input-group-lg">
         <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>

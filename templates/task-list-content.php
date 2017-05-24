@@ -27,8 +27,8 @@ foreach ($tasks as $task) {
 <td><?=$departments[$task->department]->name?></td>
 <td><?=$users[$task->leader]->name?></td>
 <td><?=isset($users[$task->tester]) ? $users[$task->tester]->name : '-'?></td>
-<td><?=$task->updated_at?></td>
 <td><?=date('Y-m-d H:i:s', $task->deadline)?></td>
+<td><?=$task->updated_at?></td>
 </tr>
 <?php } ?>
 <tr><td colspan="12" class="text-left">

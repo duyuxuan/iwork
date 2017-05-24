@@ -138,8 +138,8 @@
   <th width="80" class="text-center"> 部门 </th>
   <th width="80" class="text-center"> 负责人 </th>
   <th width="80" class="text-center"> 验收人 </th>
-  <th width="155" class="text-center">修改时间</th>
   <th width="155" class="text-center">期限</th>
+  <th width="155" class="text-center">修改时间</th>
     </tr>
   </thead>
   <tbody id="tasklist">

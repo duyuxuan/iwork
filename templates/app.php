@@ -41,5 +41,8 @@
 
 </form>
 
+<hr />
+<a href="/auth/register" class="btn btn-default btn-lg btn-block">没有帐号，去注册</a>
+
 </div></div>
 <?php $this->end()?>

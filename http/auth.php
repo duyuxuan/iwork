@@ -14,7 +14,7 @@ class Controller {
         return View::render('test');
     }
 
-    public function create( ) {
+    public function register( ) {
         $row = getgpc('row');
         $errors = [];
         $db = DB::write();
@@ -51,7 +51,10 @@ class Controller {
     }
 
     public function login( ) {
-        $email = $_POST['email'];
+        $email = getgpc('email');
+        if (!$email) {
+            return $this->index();
+        }
 
         $db = DB::write();
         $user = $db->select('*')->from('users')->where('email= :email')->bindValues(array('email'=>$email))->row();
