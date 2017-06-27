@@ -18,3 +18,4 @@ if ($total > 0) {
 <td><?=$one[98]?></td>
 <td>
 <?php $this->insert('progress', ['p' => $p ]) ?>
+</td>

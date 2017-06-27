@@ -113,11 +113,14 @@ class Controller extends AuthedRequest {
 
         $db = DB::write();
 
-        $t_start = '';
-        $t_end = '';
+        $t_start_show = '';
+        $t_end_show = '';
+
         $sqlwhere = array();
 
         if ($t_end && $t_start) {
+            $t_start_show = $t_start;
+            $t_end_show = $t_end;
             $t_start = $t_start . ' 00:00:00';
             $t_end = $t_end . ' 23:59:59';
 
@@ -125,8 +128,11 @@ class Controller extends AuthedRequest {
             $sqlwhere[] = "updated_at<='$t_end'";
         } else {
             if (!$wheres) {
-                $t_start = date('Y-m-d', time() - 86400) . ' 00:00:00';
-                $t_end = date('Y-m-d') . ' 23:59:59';
+                $t_start_show = date('Y-m-d', time() - 86400);
+                $t_end_show = date('Y-m-d');
+
+                $t_start = $t_start_show . ' 00:00:00';
+                $t_end = $t_end_show . ' 23:59:59';
 
                 $sqlwhere[] = "updated_at>='$t_start'";
                 $sqlwhere[] = "updated_at<='$t_end'";
@@ -166,6 +172,8 @@ class Controller extends AuthedRequest {
                 continue;
             }
 
+            $type = $catys[$row->caty]->name;
+
             $module = str_replace('【', '', $titles[0]);
             if (isset($titles[2])) {
                 $caty = str_replace('【', '', $titles[1]);
@@ -177,6 +185,7 @@ class Controller extends AuthedRequest {
 
             $a[] = [
                 'module' => $module,
+                'type' => $type,
                 'caty' => $caty,
                 'leader' => $users[$row->leader]->name,
                 'author' => $users[$row->author]->name,

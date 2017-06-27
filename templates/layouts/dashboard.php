@@ -13,6 +13,8 @@
 <div class="list-group">
   <a href="/task/index" class="list-group-item<?=(I\Request::is('/task/index') ? ' active' : '') ?>">任务清单</a>
   <a href="/task/checks" class="list-group-item<?=(I\Request::is('/task/checks') ? ' active' : '') ?>">CHECKS</a>
+  <a href="/stats/index" class="list-group-item<?=(I\Request::isctl('stats') ? ' active' : '') ?>">数量统计</a>
+  <a href="/coder/index" class="list-group-item<?=(I\Request::isctl('coder') ? ' active' : '') ?>">技术生产力</a>
   <a href="/tag/vvv" class="list-group-item<?=(I\Request::is('/tag/vvv') ? ' active' : '') ?>">维度统计</a>
 </div>
 

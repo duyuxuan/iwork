@@ -12,7 +12,7 @@ class Controller extends AuthedRequest {
             ]);
     }
 
-    public function store(Request $request) {
+    public function store( ) {
         $id = getgpc('id');
         $row = getgpc('row');
 
@@ -33,7 +33,7 @@ class Controller extends AuthedRequest {
         $db = DB::write();
 
         $row = $db->row('select count(*) as num from tasks where pro=' . $id);
-        if ($row['num'] > 0) {
+        if ($row->num > 0) {
             return View::render('error', ['msg' => '本项目下还有任务', 'backurl' => '/pro/index']);
         }
 

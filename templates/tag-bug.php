@@ -3,6 +3,7 @@
 
 <?php
 $select = [
+  'type' => '分类',
   'caty' => '类型', 'leader' => '成员', 'status' => '状态',
   'module' => '模块', 'pro' => '项目', 'tag' => '版本',
   'author' => '报告', 'tester' => '验收'
